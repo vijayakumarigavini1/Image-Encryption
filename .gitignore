@@ -1,0 +1,10 @@
+﻿secret.key
+__pycache__/
+venv/
+.venv/
+.env
+
+# Generated test files
+encrypted_image.enc
+decrypted_image.png
+*.key

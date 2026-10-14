@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SecureVision | Image Encryption</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #080d1b;
+    color: #f1f5f9;
+}
+
+header {
+    background: #101a30;
+    border-bottom: 1px solid #243858;
+    padding: 22px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.brand {
+    font-size: 23px;
+    font-weight: 800;
+    color: #60a5fa;
+}
+
+.brand span {
+    color: white;
+}
+
+.status {
+    background: #12352f;
+    color: #86efac;
+    border: 1px solid #24654e;
+    border-radius: 30px;
+    padding: 9px 15px;
+    font-size: 13px;
+}
+
+main {
+    max-width: 1150px;
+    margin: auto;
+    padding: 45px 24px;
+}
+
+.hero {
+    padding: 38px 0;
+    text-align: center;
+}
+
+.tag {
+    color: #60a5fa;
+    letter-spacing: 3px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.hero h1 {
+    font-size: clamp(30px, 5vw, 48px);
+    margin: 20px 0;
+    line-height: 1.2;
+}
+
+.hero h1 span {
+    color: #60a5fa;
+}
+
+.hero p {
+    color: #a7b5ca;
+    max-width: 650px;
+    margin: auto;
+    line-height: 1.8;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin: 30px 0 45px;
+}
+
+.stat {
+    background: #111c31;
+    border: 1px solid #263854;
+    border-radius: 14px;
+    padding: 22px;
+}
+
+.stat small {
+    color: #9aacc5;
+}
+
+.stat h3 {
+    font-size: 20px;
+    margin-top: 12px;
+}
+
+.section-title {
+    font-size: 25px;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: #9aacc5;
+    margin-bottom: 25px;
+    line-height: 1.7;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 22px;
+}
+
+.card {
+    background: linear-gradient(145deg, #14223a, #10192b);
+    border: 1px solid #2a3c5a;
+    border-radius: 18px;
+    padding: 28px;
+    transition: transform .2s, border-color .2s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    border-color: #60a5fa;
+}
+
+.icon {
+    width: 54px;
+    height: 54px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    background: #20375b;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+.card p {
+    color: #a7b5ca;
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+input[type="file"] {
+    display: block;
+    width: 100%;
+    padding: 13px;
+    margin: 22px 0;
+    border: 1px dashed #486184;
+    border-radius: 10px;
+    background: #0b1426;
+    color: #dbeafe;
+    font-size: 13px;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    background: #2563eb;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background .2s;
+}
+
+button:hover {
+    background: #3b82f6;
+}
+
+.security {
+    margin-top: 35px;
+    padding: 25px;
+    background: #10271f;
+    border: 1px solid #245440;
+    border-radius: 14px;
+}
+
+.security h3 {
+    color: #86efac;
+    margin-bottom: 12px;
+}
+
+.security p {
+    color: #c3d7cb;
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+.message {
+    padding: 16px;
+    border-radius: 10px;
+    background: #12352f;
+    color: #bbf7d0;
+    margin-bottom: 25px;
+    overflow-wrap: anywhere;
+}
+
+.message.error {
+    background: #4a2028;
+    color: #fecaca;
+}
+
+footer {
+    border-top: 1px solid #243858;
+    text-align: center;
+    padding: 25px;
+    color: #8293ad;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+@media (max-width: 600px) {
+    header {
+        padding: 18px;
+    }
+
+    main {
+        padding: 25px 16px;
+    }
+
+    .hero {
+        padding: 25px 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="brand">🔐 Secure<span>Vision</span></div>
+    <div class="status">● APPLICATION READY</div>
+</header>
+
+<main>
+
+    <section class="hero">
+        <div class="tag">CYBERSECURITY PROJECT</div>
+
+        <h1>
+            Protect Your Images.<br>
+            <span>Secure Your Data.</span>
+        </h1>
+
+        <p>
+            A secure image encryption and decryption application
+            using Fernet authenticated symmetric encryption.
+            Encrypt your visual data and restore it when needed.
+        </p>
+    </section>
+
+    <section class="stats">
+        <div class="stat">
+            <small>ENCRYPTION</small>
+            <h3>🔒 Fernet</h3>
+        </div>
+
+        <div class="stat">
+            <small>FILE SIZE LIMIT</small>
+            <h3>10 MB</h3>
+        </div>
+
+        <div class="stat">
+            <small>PROCESSING</small>
+            <h3>Image Files</h3>
+        </div>
+    </section>
+
+    {% if message %}
+    <div class="message {{ 'error' if error else '' }}">
+        {{ message }}
+    </div>
+    {% endif %}
+
+    <h2 class="section-title">Encryption Workspace</h2>
+
+    <p class="subtitle">
+        Select an image to encrypt or upload a previously encrypted
+        file to decrypt it.
+    </p>
+
+    <section class="cards">
+
+        <div class="card">
+            <div class="icon">🔒</div>
+
+            <h3>Encrypt Image</h3>
+
+            <p>
+                Upload a PNG, JPG, JPEG or WEBP image.
+                Download the encrypted output for secure storage.
+            </p>
+
+            <form action="/encrypt"
+                  method="post"
+                  enctype="multipart/form-data">
+
+                <input type="file"
+                       name="image"
+                       accept=".png,.jpg,.jpeg,.webp"
+                       required>
+
+                <button type="submit">Encrypt Image →</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <div class="icon">🔓</div>
+
+            <h3>Decrypt Image</h3>
+
+            <p>
+                Upload an encrypted .enc file created using
+                the matching secret key to restore your image.
+            </p>
+
+            <form action="/decrypt"
+      method="post"
+      enctype="multipart/form-data">
+
+    <label for="encrypted_file">Encrypted Image (.enc)</label>
+    <input type="file"
+           id="encrypted_file"
+           name="encrypted_file"
+           accept=".enc"
+           required>
+
+    <label for="key_file">Secret Key (.key)</label>
+    <input type="file"
+           id="key_file"
+           name="key_file"
+           accept=".key"
+           required>
+
+    <button type="submit">Decrypt Image</button>
+</form>
+        </div>
+
+    </section>
+
+    <section class="security">
+        <h3>🛡️ Security Information</h3>
+
+        <p>
+            Fernet provides authenticated encryption. Keep your
+            secret key private and maintain a secure backup.
+            Files are processed in memory by this application.
+            Use only trusted files and protect access to your computer.
+        </p>
+    </section>
+
+</main>
+
+<footer>
+    <strong>Image Encryption: Securing Visual Data in the Digital Realm</strong>
+    <br>
+    Cybersecurity & Ethical Hacking | Academic Project
+</footer>
+
+</body>
+</html>
