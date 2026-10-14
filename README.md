@@ -1,5 +1,11 @@
 # 🔐 Image Encryption: Securing Visual Data in the Digital Realm
 
+## 🌐 Live Demo
+
+🚀 **[Click here to open the Image Encryption Application](https://image-encryption-app.onrender.com)**
+
+Try the live application to explore image encryption and decryption functionality.
+
 ## 📌 Project Overview
 
 Image Encryption is a web-based application developed to protect digital images by encrypting image data and allowing authorized users to decrypt it when needed.
